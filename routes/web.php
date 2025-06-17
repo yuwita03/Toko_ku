@@ -1,29 +1,39 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TransactionController;
 
-// Dashboard
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
+// Route login & register (tanpa auth)
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login'])->name('login.post');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [RegisterController::class, 'register'])->name('register.post');
 
-// Produk
-Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
-Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('product.edit');
-Route::put('/product/{id}', [ProductController::class, 'update'])->name('product.update');
-Route::resource('products', ProductController::class);
+// Group semua route yang harus login
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
-// Keranjang
-Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
-Route::post('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
-Route::post('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
-Route::post('/cart/increment/{id}', [CartController::class, 'increment'])->name('cart.increment');
-Route::post('/cart/decrement/{id}', [CartController::class, 'decrement'])->name('cart.decrement');
+    // Produk
+    Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+    Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('product.edit');
+    Route::put('/product/{id}', [ProductController::class, 'update'])->name('product.update');
+    Route::resource('products', ProductController::class);
 
+    // Keranjang
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+    Route::post('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
+    Route::post('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+    Route::post('/cart/increment/{id}', [CartController::class, 'increment'])->name('cart.increment');
+    Route::post('/cart/decrement/{id}', [CartController::class, 'decrement'])->name('cart.decrement');
 
-// Checkout
-Route::post('/checkout', [App\Http\Controllers\CheckoutController::class, 'checkout'])->name('checkout');
-Route::get('/transaksi', [App\Http\Controllers\TransactionController::class, 'index'])->name('transactions.index');
+    // Checkout & transaksi
+    Route::post('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
+    Route::get('/transaksi', [TransactionController::class, 'index'])->name('transactions.index');
+});

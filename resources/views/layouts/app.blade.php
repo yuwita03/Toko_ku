@@ -6,12 +6,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
 </head>
 <body>
+    @include('layouts.up_app')
     <div class="d-flex">
         <!-- Sidebar -->
         <nav class="bg-light border-end" style="width: 220px; min-height: 100vh;">
-            <div class="sidebar-header p-3">
-                <h4>TokoLaravel</h4>
-            </div>
             <ul class="nav flex-column">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('dashboard.index') }}">Dashboard</a>
