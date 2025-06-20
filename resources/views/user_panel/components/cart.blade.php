@@ -1,4 +1,3 @@
-        @livewire('cart-dropdown')
         <div class="relative inline-block text-left">
             @auth
           <button onclick="toggleDropdown()" class="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded-lg focus:outline-none">
