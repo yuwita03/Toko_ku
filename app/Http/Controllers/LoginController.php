@@ -41,4 +41,32 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
         return redirect()->route('login');
     }
+    public function edit()
+    {
+        $user = Auth::user();
+        return view('user_form.edit', compact('user'));
+    }
+    public function update(Request $request)
+        {
+            $user = User::find(Auth::id()); // pastikan instance dari App\Models\User
+
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'email' => 'required|email|unique:users,email,' . $user->id,
+                'password' => 'nullable|min:6|confirmed',
+            ]);
+
+            $user->name = $request->name;
+            $user->email = $request->email;
+
+            if ($request->filled('password')) {
+                $user->password = Hash::make($request->password);
+            }
+
+            $user->save(); // tidak error lagi
+
+            return redirect()->route('akun.edit')->with('success', 'Akun berhasil diperbarui.');
+        }
+
+
 }

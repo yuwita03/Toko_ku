@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
 {
 public function index(Request $request)
 {
-    $query = \App\Models\Transaction::with('items');
+    $query = \App\Models\Transaction::with('items')->where('user_id', Auth::id());
 
     // Tambahkan pencarian jika ada input
     if ($request->search) {

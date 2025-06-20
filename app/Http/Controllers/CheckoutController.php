@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends Controller
 {
@@ -17,10 +18,13 @@ class CheckoutController extends Controller
         foreach ($cart as $item) {
             $total += $item['sell_price'] * $item['quantity'];
         }
+        
+        date_default_timezone_set('Asia/Jakarta');
 
         $transaction = \App\Models\Transaction::create([
-            'kode_transaksi' => 'TRX' . time(),
+            'kode_transaksi' => 'TRX' . date('YmdHis'), // Contoh: TRX20250620205630
             'total' => $total,
+            'user_id' => Auth::id(),
         ]);
 
         foreach ($cart as $item) {

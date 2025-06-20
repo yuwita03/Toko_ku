@@ -11,6 +11,7 @@ class Transaction extends Model
     protected $fillable = [
     'kode_transaksi',
     'total',
+    'user_id',
     // tambahkan field lain jika ada
 ];
 
