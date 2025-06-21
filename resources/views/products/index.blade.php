@@ -4,7 +4,7 @@
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h4>Daftar Produk</h4>
-        <a href="{{ route('products.create') }}" class="btn btn-primary">+ Tambah Produk</a>
+        <a href="{{ route('admin.products.create') }}" class="btn btn-primary">+ Tambah Produk</a>
     </div>
 <div>
 
@@ -58,10 +58,10 @@
                 <td>{{ number_format($product->cost_price, 0, ',', '.') }}</td>
                 <td>{{ number_format($product->profit, 0, ',', '.') }}</td>
                 <td>
-                    <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning btn-sm">
+                    <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-warning btn-sm">
                         <i class="bi bi-pencil"></i>
                     </a>
-                    <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display:inline" onsubmit="return confirm('Yakin hapus produk?')">
+                    <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST" style="display:inline" onsubmit="return confirm('Yakin hapus produk?')">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger btn-sm">

@@ -20,12 +20,41 @@
             </button>
           </form>
 
-          <a href="{{ route('products.show', $product->id) }}" class="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-xl text-sm font-semibold">
+          <!-- Button to trigger modal -->
+          <button type="button" class="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-xl text-sm font-semibold"
+                  data-bs-toggle="modal" data-bs-target="#productDetailModal{{ $product->id }}">
             Detail
-          </a>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div class="modal fade" id="productDetailModal{{ $product->id }}" tabindex="-1" aria-labelledby="productDetailModalLabel{{ $product->id }}" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="productDetailModalLabel{{ $product->id }}">Detail Produk</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+          </div>
+          <div class="modal-body">
+            <img src="{{ $product->image ?? 'https://via.placeholder.com/400x300' }}" class="img-fluid rounded mb-3" alt="{{ $product->name }}">
+            <h5>{{ $product->name }}</h5>
+            <p><strong>Kategori:</strong> {{ $product->category }}</p>
+            <p><strong>Deskripsi:</strong> {{ $product->description }}</p>
+            <p><strong>Stok:</strong> {{ $product->stock }}</p>
+            <p><strong>Harga:</strong> Rp{{ number_format($product->sell_price, 0, ',', '.') }}</p>
+            <p><strong>Harga Modal:</strong> Rp{{ number_format($product->cost_price, 0, ',', '.') }}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-xl text-smbtn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+          </div>
         </div>
       </div>
     </div>
     @endforeach
   </div>
 </div>
+
+
+<!-- Tambahkan sebelum </body> -->

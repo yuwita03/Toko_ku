@@ -2,7 +2,7 @@
 $isEdit = isset($product);
 @endphp
 
-<form action="{{ $isEdit ? route('products.update', $product->id) : route('products.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ $isEdit ? route('admin.products.update', $product->id) : route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     @if($isEdit)
         @method('PUT')
@@ -50,6 +50,18 @@ $isEdit = isset($product);
     {{-- Input link URL --}}
     <input type="url" name="image_url" class="form-control" placeholder="Atau masukkan link gambar (opsional)">
 </div>
+<button
+    type="submit"
+    class="btn btn-success"
+    onclick="this.disabled=true; this.form.submit();"
+>
+    {{ $isEdit ? 'Update' : 'Tambah' }} Produk
+</button>
 
-    <button type="submit" class="btn btn-success">{{ $isEdit ? 'Update' : 'Tambah' }} Produk</button>
 </form>
+<script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function () {
+        form.querySelector('button[type="submit"]').disabled = true;
+    });
+</script>

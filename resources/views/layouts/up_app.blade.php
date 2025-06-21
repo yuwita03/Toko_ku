@@ -16,7 +16,9 @@
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                     <li>
-
+                        <a class="dropdown-item" href="{{ route('userpanel') }}"><i class="bi bi-pencil-square me-2"></i>Dashboard</a>
+                    </li>
+                    <li>
                         <a class="dropdown-item" href="{{ route('akun.edit') }}"><i class="bi bi-pencil-square me-2"></i>Edit Profil</a>
                     </li>
                     <li>

@@ -14,7 +14,10 @@ class Transaction extends Model
     'user_id',
     // tambahkan field lain jika ada
 ];
-
+public function user()
+{
+    return $this->belongsTo(User::class);
+}
     public function items()
     {
         return $this->hasMany(TransactionItem::class);

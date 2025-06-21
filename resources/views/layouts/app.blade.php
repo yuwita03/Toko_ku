@@ -12,10 +12,10 @@
         <nav class="bg-light border-end" style="width: 220px; min-height: 100vh;">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('products.index') }}">Produk</a>
+                    <a class="nav-link" href="{{ route('admin.products.index') }}">Produk</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('transactions.index') }}">Transaksi</a>
+                    <a class="nav-link" href="{{ route('transactions.all') }}">Transaksi</a>
                 </li>
                 <!-- Tambahkan menu lain sesuai kebutuhan -->
             </ul>

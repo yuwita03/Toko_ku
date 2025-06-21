@@ -47,22 +47,33 @@
                     </button>
 
                     <!-- Dropdown content -->
-                    <div id="userDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg z-50">
-                        <ul class="text-sm text-gray-700">
-                            <li>
-                                <a href="{{ route('akun.edit') }}" class="block px-4 py-2 hover:bg-gray-100">Edit Profile</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('transactions.index')}}" class="block px-4 py-2 hover:bg-gray-100">Riwayat Transaksi</a>
-                            </li>
-                            <li>
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                    <button type="submit" class="w-full text-left px-4 py-2 hover:bg-gray-100 text-red-500">Logout</button>
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
+<div id="userDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg z-50">
+    <ul class="text-sm text-gray-700">
+        <li>
+            <a href="{{ route('akun.edit') }}" class="block px-4 py-2 hover:bg-gray-100">Edit Profile</a>
+        </li>
+        <li>
+            <a href="{{ route('transactions.index')}}" class="block px-4 py-2 hover:bg-gray-100">Riwayat Transaksi</a>
+        </li>
+<li>
+    @php
+        $role = (int) Auth::user()->role;
+    @endphp
+
+    @if(in_array($role, [0, 1]))
+        <a href="{{ route('admin.products.index') }}" class="block px-4 py-2 hover:bg-gray-100">Kelola Produk</a>
+    @endif
+</li>
+
+        <li>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="w-full text-left px-4 py-2 hover:bg-gray-100 text-red-500">Logout</button>
+            </form>
+        </li>
+    </ul>
+</div>
+
                 @else
                     <a href="{{ route('login') }}" class="bg-orange-500 px-4 py-2 rounded text-white hover:bg-orange-600">Login</a>
                 @endauth
@@ -70,6 +81,7 @@
         </div>
     </nav>
 </header>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
     function toggleUserDropdown() {

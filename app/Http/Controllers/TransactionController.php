@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Transaction;
 
 class TransactionController extends Controller
 {
@@ -22,4 +23,18 @@ public function index(Request $request)
     // return view('transactions.index', compact('transactions', 'totalTransactions'));
     return view('user_panel.transaction.history_transaction', compact('transactions', 'totalTransactions'));
 }
+
+public function all(Request $request)
+{
+    $query = Transaction::with('user', 'items');
+
+    if ($request->search) {
+        $query->where('kode_transaksi', 'like', '%'.$request->search.'%');
+    }
+    $transactions = $query->latest()->get();
+    $totalTransactions = $transactions->count();
+
+    return view('transactions.index', compact('transactions','totalTransactions'));
+}
+
 }

@@ -57,7 +57,7 @@ class ProductController extends Controller
 
         Product::create($validated);
 
-        return redirect()->route('products.index')->with('success', 'Produk berhasil ditambahkan!');
+        return redirect()->route('admin.products.index')->with('success', 'Produk berhasil ditambahkan!');
     }
 
     public function edit(Product $product)
@@ -93,12 +93,12 @@ class ProductController extends Controller
 
         $product->update($validated);
 
-        return redirect()->route('products.index')->with('success', 'Produk berhasil diupdate!');
+        return redirect()->route('admin.products.index')->with('success', 'Produk berhasil diupdate!');
     }
 
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect()->route('products.index')->with('success', 'Produk berhasil dihapus!');
+        return redirect()->route('admin.products.index')->with('success', 'Produk berhasil dihapus!');
     }
 }

@@ -26,13 +26,16 @@ Route::middleware(['auth'])->group(function () {
 
 
     // Produk
-    Route::middleware(['role:0,1'])->group(function () {
+    Route::middleware(['role:0,1'])->prefix('admin')->name('admin.')->group(function () {
         Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
         Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('product.edit');
         Route::put('/product/{id}', [ProductController::class, 'update'])->name('product.update');
         Route::resource('products', ProductController::class);
     });
-    // hanya user (2) yang bisa akses ini
+    // hanya admin (0) dan kasir (1) yang bisa akses ini
+    Route::middleware(['auth', 'role:0,1'])->group(function () {
+        Route::get('/admin/transaksi', [TransactionController::class, 'all'])->name('transactions.all');
+    });
 
 
     // Keranjang
@@ -44,4 +47,6 @@ Route::middleware(['auth'])->group(function () {
     // Checkout & transaksi
     Route::get('/transaksi', [TransactionController::class, 'index'])->name('transactions.index');
     Route::post('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
+
+
 });

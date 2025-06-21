@@ -10,6 +10,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com/3.3.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+<!-- Tambahkan di <head> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="app.css" />
