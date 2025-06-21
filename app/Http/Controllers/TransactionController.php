@@ -19,6 +19,7 @@ public function index(Request $request)
     $transactions = $query->latest()->get();
     $totalTransactions = $transactions->count();
 
-    return view('transactions.index', compact('transactions', 'totalTransactions'));
+    // return view('transactions.index', compact('transactions', 'totalTransactions'));
+    return view('user_panel.transaction.history_transaction', compact('transactions', 'totalTransactions'));
 }
 }

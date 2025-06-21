@@ -12,6 +12,12 @@
         <nav class="bg-light border-end" style="width: 220px; min-height: 100vh;">
             <ul class="nav flex-column">
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('dashboard.') }}">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('cart.index') }}">Keranjang</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('products.index') }}">Produk</a>
                 </li>
                 <li class="nav-item">

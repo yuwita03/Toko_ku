@@ -4,14 +4,20 @@
         <a class="navbar-brand" href="#">Toko Kocheng</a>
         <div class="ms-auto">
             @auth
+
             <div class="dropdown">
                 <button class="btn btn-dark dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i>
+                            <img src="{{ auth()->user()?->foto ? (filter_var(auth()->user()->foto, FILTER_VALIDATE_URL) ? auth()->user()->foto : asset(auth()->user()->foto)) : 'https://via.placeholder.com/100' }}"
+                                class="rounded-circle border border-white"
+                                width="32"
+                                height="32"
+                                alt="Foto Profil">
+
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                     <li>
-                            <i class="bi bi-pencil-square me-2"></i>Edit Profil
-                        </a>
+
+                        <a class="dropdown-item" href="{{ route('akun.edit') }}"><i class="bi bi-pencil-square me-2"></i>Edit Profil</a>
                     </li>
                     <li>
                         <form action="{{ route('logout') }}" method="POST" class="d-inline">

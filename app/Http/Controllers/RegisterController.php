@@ -44,6 +44,6 @@ class RegisterController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('dashboard.index');
+        return redirect()->route('userpanel');
     }
 }

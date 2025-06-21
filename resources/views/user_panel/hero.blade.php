@@ -20,7 +20,7 @@
     <section class="flex flex-col items-center justify-center bg-black my-12 pt-5 pb-16" id="about">
       <h1 class="text-xl font-extrabold text-white text-center">About Us</h1>
       <div class="container flex flex-col md:flex-row items-center justify-center gap-8">
-        <img src="../img/Napo.png" alt="Blueberry Cake" class="w-[20rem] mx-auto md:mx-0" />
+        <img src="https://th.bing.com/th/id/R.c36aa99f504a41fefa684b3a6b716c77?rik=F06ZbfQgwoL0FA&riu=http%3a%2f%2fsweetclipart.com%2fmultisite%2fsweetclipart%2ffiles%2fcat_black_white_line_art.png&ehk=BEwSksrClDEML3luKyITunhMmH9kVHTbyB1iJeWVrEc%3d&risl=&pid=ImgRaw&r=0" alt="Blueberry Cake" class="w-[20rem] mx-auto md:mx-0" />
         <p class="text-white text-center md:text-left max-w-lg">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus repudiandae excepturi corrupti eaque possimus ipsam dignissimos ea corporis eum ex! Unde minima accusantium repellendus quos earum voluptatem accusamus. Quisquam, dolorum.
         </p>

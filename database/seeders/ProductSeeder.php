@@ -11,41 +11,42 @@ class ProductSeeder extends Seeder
     {
         Product::insert([
             [
-                'name' => 'Kaos Polos',
-                'barcode' => '1000001',
-                'category' => 'Fashion',
-                'stock' => 100,
+                'name' => 'Brownies Coklat',
+                'barcode' => '2000001',
+                'category' => 'Kue',
+                'stock' => 30,
+                'sell_price' => 45000,
+                'cost_price' => 30000,
+                'profit' => 15000,
+                'image' => 'https://via.placeholder.com/300x200?text=Brownies+Coklat',
+                'description' => 'Brownies coklat lembut dan legit, cocok untuk camilan keluarga.',
+                'created_at' => now(), 'updated_at' => now()
+            ],
+            [
+                'name' => 'Cheesecake Stroberi',
+                'barcode' => '2000002',
+                'category' => 'Cake',
+                'stock' => 15,
+                'sell_price' => 65000,
+                'cost_price' => 45000,
+                'profit' => 20000,
+                'image' => 'https://via.placeholder.com/300x200?text=Cheesecake+Stroberi',
+                'description' => 'Cheesecake dingin dengan topping stroberi segar.',
+                'created_at' => now(), 'updated_at' => now()
+            ],
+            [
+                'name' => 'Tiramisu Slice',
+                'barcode' => '2000003',
+                'category' => 'Dessert',
+                'stock' => 25,
                 'sell_price' => 50000,
                 'cost_price' => 35000,
                 'profit' => 15000,
-                'image' => 'https://via.placeholder.com/300x200?text=Kaos+Polos',
-                'description' => 'Kaos polos bahan katun, nyaman dipakai.',
-                'created_at' => now(), 'updated_at' => now()
-            ],
-            [
-                'name' => 'Celana Jeans',
-                'barcode' => '1000002',
-                'category' => 'Fashion',
-                'stock' => 50,
-                'sell_price' => 120000,
-                'cost_price' => 80000,
-                'profit' => 40000,
-                'image' => 'https://via.placeholder.com/300x200?text=Celana+Jeans',
-                'description' => 'Celana jeans biru ukuran all size.',
-                'created_at' => now(), 'updated_at' => now()
-            ],
-            [
-                'name' => 'Sepatu Sneakers',
-                'barcode' => '1000003',
-                'category' => 'Sepatu',
-                'stock' => 20,
-                'sell_price' => 200000,
-                'cost_price' => 150000,
-                'profit' => 50000,
-                'image' => 'https://via.placeholder.com/300x200?text=Sneakers',
-                'description' => 'Sepatu sneakers kekinian, nyaman untuk harian.',
+                'image' => 'https://via.placeholder.com/300x200?text=Tiramisu+Slice',
+                'description' => 'Potongan kue tiramisu dengan lapisan krim dan kopi.',
                 'created_at' => now(), 'updated_at' => now()
             ],
         ]);
+
     }
 }

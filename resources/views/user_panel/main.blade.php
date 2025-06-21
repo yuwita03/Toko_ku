@@ -9,15 +9,17 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="app.css" />
     <!-- TW Elements -->
+     @livewireStyles
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/css/tw-elements.min.css" />
   </head>
 
   <body class="bg-black">
     <!-- Hamburger Menu Icon -->
-    <i data-feather="menu" onclick="onToggleMenu(this)" class="text-3xl cursor-pointer md:hidden text-white z-10"></i>
 
     <!-- Navbar -->
 
@@ -33,6 +35,7 @@
 
 
 
+@livewireScripts
 
 
     <!-- TW Elements Script -->
@@ -58,3 +61,4 @@
     }
   });
 </script>
+

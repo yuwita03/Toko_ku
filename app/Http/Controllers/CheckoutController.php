@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends Controller
@@ -18,17 +19,16 @@ class CheckoutController extends Controller
         foreach ($cart as $item) {
             $total += $item['sell_price'] * $item['quantity'];
         }
-        
-        date_default_timezone_set('Asia/Jakarta');
 
         $transaction = \App\Models\Transaction::create([
-            'kode_transaksi' => 'TRX' . date('YmdHis'), // Contoh: TRX20250620205630
+            'kode_transaksi' => 'TRX' . Carbon::now('Asia/Jakarta')->format('YmdHis'),
             'total' => $total,
             'user_id' => Auth::id(),
         ]);
 
         foreach ($cart as $item) {
             \App\Models\TransactionItem::create([
+                'user_id'        => Auth::id(),
                 'transaction_id' => $transaction->id,
                 'product_name'   => $item['name'],
                 'quantity'       => $item['quantity'],
