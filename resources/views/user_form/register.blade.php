@@ -43,11 +43,18 @@
             </select>
             @error('role') <div class="text-danger small">{{ $message }}</div> @enderror
         </div>
-        <button class="btn btn-success w-100">Register</button>
-    </form>
+        <button  type="submit" class="btn btn-success w-100" onclick="this.disabled=true; this.form.submit();">Register</button>
+
     <div class="mt-2 text-center">
         <a href="{{ route('login') }}">Sudah punya akun? Login</a>
     </div>
 
+
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function () {
+        form.querySelector('button[type="submit"]').disabled = true;
+    });
+</script>

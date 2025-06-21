@@ -7,12 +7,15 @@
 
             <div class="dropdown">
                 <button class="btn btn-dark dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{{ auth()->user()?->foto ? (filter_var(auth()->user()->foto, FILTER_VALIDATE_URL) ? auth()->user()->foto : asset(auth()->user()->foto)) : 'https://via.placeholder.com/100' }}"
-                                class="rounded-circle border border-white"
-                                width="32"
-                                height="32"
-                                alt="Foto Profil">
-
+                    @if(auth()->user()?->foto)
+                        <img src="{{ filter_var(auth()->user()->foto, FILTER_VALIDATE_URL) ? auth()->user()->foto : asset(auth()->user()->foto) }}"
+                            class="rounded-circle border border-white"
+                            width="32"
+                            height="32"
+                            alt="Foto Profil">
+                    @else
+                        <i class="bi bi-person-circle text-white fs-4"></i>
+                    @endif
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                     <li>

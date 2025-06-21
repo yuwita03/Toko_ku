@@ -35,11 +35,18 @@
             <div class="relative inline-block text-left">
                 @auth
                     <button onclick="toggleUserDropdown()" class="flex items-center space-x-2 hover:bg-gray-700 text-white px-4 py-2 rounded-lg focus:outline-none">
-                        <img src="{{ auth()->user()?->foto ? (filter_var(auth()->user()->foto, FILTER_VALIDATE_URL) ? auth()->user()->foto : asset(auth()->user()->foto)) : 'https://via.placeholder.com/100' }}"
-                             class="rounded-full border border-white"
-                             width="32"
-                             height="32"
-                             alt="Foto Profil">
+                        @if($fotoUrl)
+                            <img src="{{ $fotoUrl }}"
+         class="w-8 h-8 rounded-full border border-white object-cover"
+         alt="Foto Profil">
+@else
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+        <path fill-rule="evenodd"
+              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8 7a7 7 0 0 0 4.546-1.636c-.198-.977-.986-1.751-2.125-2.098C9.69 10.64 8.86 10.5 8 10.5s-1.69.14-2.421.766c-1.14.347-1.927 1.12-2.125 2.098A7 7 0 0 0 8 15z"/>
+    </svg><i class="bi bi-person-circle text-white fs-4"></i>
+@endif
+
                         <span>Hi, {{ Auth::user()->nama }}</span>
                         <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />

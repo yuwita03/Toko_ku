@@ -10,9 +10,22 @@ use App\Models\Product;
 
 class UserPanel extends Controller
 {
-    public function UserPanel()
-    {
-        $products = Product::all();
-        return view('user_panel.main',compact('products'));
-    }
+public function UserPanel()
+{
+    $products = Product::all();
+    $user = Auth::user();
+
+    $foto = $user?->foto;
+
+    $isValidFoto = $foto && trim($foto) !== '' && (
+        filter_var($foto, FILTER_VALIDATE_URL) || file_exists(public_path($foto))
+    );
+
+    $fotoUrl = $isValidFoto
+        ? (filter_var($foto, FILTER_VALIDATE_URL) ? $foto : asset($foto))
+        : null;
+
+    return view('user_panel.main', compact('products', 'fotoUrl'));
+}
+
 }

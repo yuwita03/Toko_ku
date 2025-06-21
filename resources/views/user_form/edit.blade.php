@@ -74,6 +74,8 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+    <a class="btn btn-primary" href="{{route('userpanel')}}">Kembali</a>
+
     </form>
 </div>
 

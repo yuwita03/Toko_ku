@@ -26,10 +26,11 @@ class UserSeeder extends Seeder
             ]);
 
             User::create([
-                'nama' => 'Sopian Aji',
-                'email' => 'sopian4ji@gmail.com',
-                'role' => '0',
-                'status' => 0,
+                'nama' => 'user',
+                'email' => 'user@gmail.com',
+                'role' => '2',
+
+                'status' => 1,
                 'hp' => '081234567892',
                 'password' => bcrypt('P@55word'),
             ]);
