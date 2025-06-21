@@ -77,12 +77,12 @@ php artisan serve
 ## Akun Demo (Opsional)
 
 **Admin**
-Email: [admin@example.com](mailto:admin@example.com)
-Password: password
+Email:admin@gmail.com
+Password: P@55word
 
 **User**
-Email: [user@example.com](mailto:user@example.com)
-Password: password
+Email: user@gmail.com
+Password: P@55word
 
 ## Lisensi
 
