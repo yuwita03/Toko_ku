@@ -25,11 +25,12 @@
 
     <!-- Navbar -->
 
-    @include('user_panel.nav')
-    @include('user_panel.hero')
-    <!-- Product Grid Section -->
-     @include('user_panel.display')
-     @include('user_panel.footer')
+<main class=" flex-col min-h-screen">
+  @include('user_panel.nav')
+  @include('user_panel.hero')
+  @include('user_panel.display')
+</main>
+@include('user_panel.footer')
 
 
 

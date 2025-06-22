@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Transaction;
+use App\Models\User;
 
 class TransactionController extends Controller
 {
@@ -23,7 +24,7 @@ public function index(Request $request)
     // return view('transactions.index', compact('transactions', 'totalTransactions'));
     return view('user_panel.transaction.history_transaction', compact('transactions', 'totalTransactions'));
 }
-
+// Menampilkan semua transaksi untuk admin
 public function all(Request $request)
 {
     $query = Transaction::with('user', 'items');
