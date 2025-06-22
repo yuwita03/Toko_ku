@@ -12,6 +12,7 @@ class Transaction extends Model
     'kode_transaksi',
     'total',
     'user_id',
+    'metode_pembayaran'
     // tambahkan field lain jika ada
 ];
 public function user()

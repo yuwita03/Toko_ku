@@ -25,6 +25,7 @@
                 <th>Kode Transaksi</th>
                 <th>Total</th>
                 <th>Waktu</th>
+                <th>Pembayaran</th>
                 <th>Detail</th>
             </tr>
         </thead>
@@ -35,6 +36,7 @@
                 <td>{{ $trx->kode_transaksi }}</td>
                 <td>Rp{{ number_format($trx->total, 0, ',', '.') }}</td>
                 <td>{{ $trx->created_at->format('d M Y, H:i') }}</td>
+                <td>{{ ucfirst($trx->metode_pembayaran ?? '-') }}</td>
                 <td>
                     <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#detailModal{{ $trx->id }}">
                         Lihat Detail
@@ -58,8 +60,11 @@
                 <div class="modal-body">
                     <strong>Nama:</strong> {{ $trx->user->nama ?? '-' }}<br>
                     <strong>Email:</strong> {{ $trx->user->email ?? '-' }}<br>
+                    <strong>Alamat:</strong> {{ $trx->user->alamat ?? '-' }}<br>
                     <strong>Kode Transaksi:</strong> {{ $trx->kode_transaksi }}<br>
-                    <strong>Tanggal:</strong> {{ $trx->created_at->format('d M Y, H:i') }}
+                    <strong>Tanggal:</strong> {{ $trx->created_at->format('d M Y, H:i') }}<br>
+                    <strong>Pembayaran :</strong>{{ ucfirst($trx->metode_pembayaran ?? '-') }}
+
 
                     <hr>
                     <h5>Detail Produk</h5>
@@ -98,12 +103,20 @@
                 <td>: {{ $trx->user->email ?? '-' }}</td>
             </tr>
             <tr>
+                <th>Alamat</th>
+                <td>: {{ $trx->user->alamat ?? '-' }}</td>
+            </tr>
+            <tr>
                 <th>Kode Transaksi</th>
                 <td>: {{ $trx->kode_transaksi }}</td>
             </tr>
             <tr>
                 <th>Tanggal</th>
                 <td>: {{ $trx->created_at->format('d M Y, H:i') }}</td>
+            </tr>
+            <tr>
+                <th>Pembayaran</th>
+                <td>: {{ ucfirst($trx->metode_pembayaran ?? '-') }}</td>
             </tr>
         </table>
 

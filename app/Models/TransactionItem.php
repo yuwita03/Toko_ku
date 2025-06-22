@@ -15,6 +15,6 @@ class TransactionItem extends Model
         'quantity',
         'sell_price',
         'cost_price',
-        'profit'
+        'profit',
     ];
 }

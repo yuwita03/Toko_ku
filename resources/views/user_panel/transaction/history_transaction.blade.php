@@ -34,6 +34,7 @@
         <thead class="bg-blue-50 border-b text-blue-700">
           <tr>
             <th class="px-4 py-3">Kode Transaksi</th>
+            <th class="px-4 py-3">Pembayaran</th>
             <th class="px-4 py-3">Total</th>
             <th class="px-4 py-3">Waktu</th>
             <th class="px-4 py-3 text-center">Detail</th>
@@ -43,6 +44,7 @@
           @foreach($transactions as $trx)
             <tr class="hover:bg-gray-50">
               <td class="px-4 py-3 font-medium text-gray-700">{{ $trx->kode_transaksi }}</td>
+              <td>{{ ucfirst($trx->metode_pembayaran ?? '-') }}</td>
               <td class="px-4 py-3 text-green-600">Rp{{ number_format($trx->total, 0, ',', '.') }}</td>
               <td class="px-4 py-3">{{ $trx->created_at->format('d M Y, H:i') }}</td>
               <td class="px-4 py-3 text-center">

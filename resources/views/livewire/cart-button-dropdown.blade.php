@@ -22,8 +22,22 @@
                         @endforeach
                     </ul>
 
+                    {{-- Pilih Metode Pembayaran --}}
+                    <div class="mt-4">
+                        <label class="block text-sm font-semibold mb-1">Metode Pembayaran</label>
+                        <select wire:model="metodePembayaran" class="w-full border-gray-300 rounded p-1">
+                            <option value="">-- Pilih --</option>
+                            <option value="COD">Cash on Delivery</option>
+                            <option value="Transfer Bank">Transfer Bank</option>
+                            <option value="E-Wallet">E-Wallet</option>
+                        </select>
+                        @error('metodePembayaran')
+                            <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+                        @enderror
+                    </div>
+
                     {{-- Tombol Buka Modal Konfirmasi Checkout --}}
-                    <button wire:click="$set('showCheckoutConfirm', true)" class="mt-4 w-full bg-green-600 text-white py-2 rounded">
+                    <button wire:click="konfirmasiCheckout" class="mt-4 w-full bg-green-600 text-white py-2 rounded">
                         Checkout
                     </button>
                 @else
@@ -52,7 +66,7 @@
     <div class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
         <div class="bg-white p-6 rounded-lg shadow-lg w-80">
             <h2 class="text-lg font-semibold text-gray-800 mb-4">Konfirmasi Checkout</h2>
-            <p class="text-sm text-gray-700 mb-6">Apakah kamu yakin ingin checkout sekarang?</p>
+            <p class="text-sm text-gray-700 mb-6">Apakah kamu yakin ingin checkout dengan metode <strong>{{ $metodePembayaran }}</strong>?</p>
             <div class="flex justify-end gap-3">
                 <button wire:click="$set('showCheckoutConfirm', false)" class="px-4 py-2 text-sm bg-gray-200 rounded hover:bg-gray-300">Batal</button>
                 <button wire:click="checkout" class="px-4 py-2 text-sm bg-green-600 text-white rounded hover:bg-green-700">Checkout</button>

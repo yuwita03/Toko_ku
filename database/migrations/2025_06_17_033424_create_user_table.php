@@ -20,7 +20,9 @@ return new class extends Migration
             $table->string('role')->default('customer'); // admin/superadmin/customer
             $table->tinyInteger('status')->default(1); // 1=aktif, 0=nonaktif
             $table->string('hp')->nullable();
+            $table->string('alamat')->nullable(); // <-- Tambahan
             $table->string('foto')->nullable();
+
             $table->rememberToken();
             $table->timestamps();
         });

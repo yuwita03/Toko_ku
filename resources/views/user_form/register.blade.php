@@ -20,6 +20,11 @@
             @error('hp') <div class="text-danger small">{{ $message }}</div> @enderror
         </div>
         <div class="mb-3">
+            <label>Alamat</label>
+            <textarea name="alamat" class="form-control" rows="2">{{ old('alamat') }}</textarea>
+            @error('alamat') <div class="text-danger small">{{ $message }}</div> @enderror
+        </div>
+        <div class="mb-3">
             <label>Foto Profil</label>
             <input type="file" name="foto" class="form-control">
             @error('foto') <div class="text-danger small">{{ $message }}</div> @enderror
@@ -33,12 +38,13 @@
             <label>Konfirmasi Password</label>
             <input type="password" name="password_confirmation" class="form-control" required>
         </div>
+
         <div class="mb-3">
             <label>Role</label>
             <select name="role" class="form-control" required>
                 <option value="">-- Pilih Role --</option>
-                <option value="0" {{ old('role')=='0' ? 'selected' : '' }}>Admin</option>
-                <option value="1" {{ old('role')=='1' ? 'selected' : '' }}>Super Admin</option>
+                <option value="0" {{ old('role')=='1' ? 'selected' : '' }}>Admin</option>
+                <option value="1" {{ old('role')=='0' ? 'selected' : '' }}>Super Admin</option>
                 <option value="2" {{ old('role')=='2' ? 'selected' : '' }}>Customer</option>
             </select>
             @error('role') <div class="text-danger small">{{ $message }}</div> @enderror

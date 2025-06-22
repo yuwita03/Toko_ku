@@ -37,11 +37,12 @@ class AdminUserController extends Controller
             'hp' => 'required|min:10|max:13',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'foto_url' => 'nullable|url',
+            'alamat' =>'required|string|max:255',
         ]);
-
         $user->nama = $request->nama;
         $user->email = $request->email;
         $user->hp = $request->hp;
+        $user->alamat = $request->alamat;
 
         if ($request->filled('password')) {
             $user->password = bcrypt($request->password);

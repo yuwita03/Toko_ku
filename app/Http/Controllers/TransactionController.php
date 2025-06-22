@@ -11,7 +11,7 @@ class TransactionController extends Controller
 {
 public function index(Request $request)
 {
-    $query = \App\Models\Transaction::with('items')->where('user_id', Auth::id());
+    $query = Transaction::with('items')->where('user_id', Auth::id());
 
     // Tambahkan pencarian jika ada input
     if ($request->search) {

@@ -17,6 +17,7 @@ return new class extends Migration
         $table->unsignedBigInteger('user_id')->nullable();
         $table->string('kode_transaksi');
         $table->integer('total');
+         $table->string('metode_pembayaran')->nullable(); // tambah di sini langsung
         $table->timestamps();
         // ...existing code...
         });

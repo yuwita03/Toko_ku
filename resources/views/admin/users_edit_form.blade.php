@@ -17,16 +17,23 @@
             <label for="nama" class="form-label">Nama</label>
             <input type="text" name="nama" value="{{ old('nama', $user->nama) }}" class="form-control">
         </div>
-
+        <div class="mb-3">
+            <label for="hp" class="form-label">Nomor HP</label>
+            <input type="text" name="hp" value="{{ old('hp', $user->hp) }}" class="form-control">
+        </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input type="email" name="email" value="{{ old('email', $user->email) }}" class="form-control" required>
         </div>
-
+        <div class="mb-3">
+            <label for="alamat" class="form-label">Alamat</label>
+            <textarea id="alamat" name="alamat" class="form-control" rows="2">{{ old('alamat', $user->alamat) }}</textarea>
+        </div>
         <div class="mb-3">
             <label for="password" class="form-label">Password Baru (opsional)</label>
             <input type="password" name="password" class="form-control">
         </div>
+
 
         <div class="mb-3">
             <label for="password_confirmation" class="form-label">Konfirmasi Password Baru</label>
@@ -51,11 +58,6 @@
                 width="100"
                 height="100"
                 alt="Foto Profil">
-        </div>
-
-        <div class="mb-3">
-            <label for="hp" class="form-label">Nomor HP</label>
-            <input type="text" name="hp" value="{{ old('hp', $user->hp) }}" class="form-control">
         </div>
 
         <button type="submit" class="btn btn-primary">Simpan Perubahan</button>

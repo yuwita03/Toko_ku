@@ -23,6 +23,8 @@ class RegisterController extends Controller
             'role'      => 'required|in:0,1,2',
             'hp'        => 'nullable|string|max:20',
             'foto'      => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'alamat' =>'required|string|max:255',
+
         ]);
 
         $fotoPath = null;
@@ -40,6 +42,7 @@ class RegisterController extends Controller
             'foto'      => $fotoPath,
             'role'      => $validated['role'], // <-- angka
             'status'    => 1, // Default status aktif
+            'alamat'    => $validated['alamat'],
         ]);
 
         Auth::login($user);
