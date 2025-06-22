@@ -26,6 +26,16 @@ class UserSeeder extends Seeder
             ]);
 
             User::create([
+                'nama' => 'SuperAdmin',
+                'email' => 'superadmin@gmail.com',
+                'role' => '0',
+
+                'status' => 1,
+                'hp' => '081234567892',
+                'password' => bcrypt('P@55word'),
+            ]);
+
+            User::create([
                 'nama' => 'user',
                 'email' => 'user@gmail.com',
                 'role' => '2',
