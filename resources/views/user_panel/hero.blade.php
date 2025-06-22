@@ -11,7 +11,8 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, enim.
           </p>
             <button class="text-white bg-orange-500 p-2 rounded-[10px] font-bold hover:bg-orange-600 active">
-              ORDER NOW!
+
+              <a href="#menu">ORDER NOW!</a>
             </button>
         </main>
       </div>
