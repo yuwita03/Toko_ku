@@ -49,4 +49,5 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
 
 
+
 });
