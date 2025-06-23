@@ -43,8 +43,8 @@
             <label>Role</label>
             <select name="role" class="form-control" required>
                 <option value="">-- Pilih Role --</option>
-                <option value="0" {{ old('role')=='1' ? 'selected' : '' }}>Admin</option>
-                <option value="1" {{ old('role')=='0' ? 'selected' : '' }}>Super Admin</option>
+                <option value="0" {{ old('role')=='1' ? 'selected' : '' }}>Super Admin</option>
+                <option value="1" {{ old('role')=='0' ? 'selected' : '' }}>Admin</option>
                 <option value="2" {{ old('role')=='2' ? 'selected' : '' }}>Customer</option>
             </select>
             @error('role') <div class="text-danger small">{{ $message }}</div> @enderror

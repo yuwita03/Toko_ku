@@ -38,11 +38,15 @@ class AdminUserController extends Controller
             'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'foto_url' => 'nullable|url',
             'alamat' =>'required|string|max:255',
+            'role' => 'required|in:0,1,2',
+            'status' => 'required|in:0,1',
         ]);
         $user->nama = $request->nama;
         $user->email = $request->email;
         $user->hp = $request->hp;
         $user->alamat = $request->alamat;
+        $user->role = $request->role;
+        $user->status = $request->status;
 
         if ($request->filled('password')) {
             $user->password = bcrypt($request->password);
@@ -71,4 +75,23 @@ class AdminUserController extends Controller
         return redirect()->route('admin.users.index')->with('success', 'User berhasil diperbarui.');
 
     }
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+
+        // Cegah admin menghapus dirinya sendiri
+        if ($user->id == auth()->id()) {
+            return redirect()->back()->with('error', 'Tidak bisa menghapus akun sendiri.');
+        }
+
+        // Hapus foto jika foto lokal
+        if ($user->foto && file_exists(public_path($user->foto)) && !filter_var($user->foto, FILTER_VALIDATE_URL)) {
+            unlink(public_path($user->foto));
+        }
+
+        $user->delete();
+
+        return redirect()->route('admin.users.index')->with('success', 'Akun berhasil dihapus.');
+    }
+
 }

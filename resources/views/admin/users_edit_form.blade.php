@@ -39,6 +39,22 @@
             <label for="password_confirmation" class="form-label">Konfirmasi Password Baru</label>
             <input type="password" name="password_confirmation" class="form-control">
         </div>
+        <div class="mb-3">
+            <label for="role" class="form-label">Role</label>
+            <select name="role" id="role" class="form-select" required>
+                <option value="0" {{ old('role', $user->role) == 0 ? 'selected' : '' }}>SuperAdmin</option>
+                <option value="1" {{ old('role', $user->role) == 1 ? 'selected' : '' }}>Admin</option>
+                <option value="2" {{ old('role', $user->role) == 2 ? 'selected' : '' }}>User</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="status" class="form-label">Status</label>
+            <select name="status" id="status" class="form-select" required>
+                <option value="1" {{ old('status', $user->status) == 1 ? 'selected' : '' }}>Aktif</option>
+                <option value="0" {{ old('status', $user->status) == 0 ? 'selected' : '' }}>Tidak Aktif</option>
+            </select>
+        </div>
+
 
         <div class="mb-3">
             <label for="foto" class="form-label">Foto Profil</label>

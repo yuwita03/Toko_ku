@@ -20,9 +20,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('transactions.all') }}">Transaksi</a>
                 </li>
+            @auth
+                @if (auth()->user()->role == 0)
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.users.index') }}">Kelola Pengguna</a>
                     </li>
+                @endif
+            @endauth
+
             </ul>
         </nav>
 

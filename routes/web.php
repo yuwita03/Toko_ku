@@ -31,11 +31,16 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
         Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('product.edit');
         Route::put('/product/{id}', [ProductController::class, 'update'])->name('product.update');
+
+
     });
 
-    // Transaksi - admin & kasir
     Route::middleware(['role:0,1'])->group(function () {
         Route::get('/admin/transaksi', [TransactionController::class, 'all'])->name('transactions.all');
+        Route::get('/admin/users', [AdminUserController::class, 'index'])->name('admin.users.index');
+        Route::get('/admin/users/{id}/edit', [AdminUserController::class, 'edit'])->name('admin.users.edit');
+        Route::post('/admin/users/{id}/edit', [AdminUserController::class, 'update'])->name('admin.users.update');
+        Route::post('/admin/users/{id}/delete', [AdminUserController::class, 'destroy'])->name('admin.users.destroy');
     });
 
     // Keranjang & Checkout
@@ -46,10 +51,4 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/transaksi', [TransactionController::class, 'index'])->name('transactions.index');
     Route::post('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
 
-    // Admin: Kelola semua user
-    Route::middleware(['role:0'])->group(function () {
-        Route::get('/admin/users', [AdminUserController::class, 'index'])->name('admin.users.index');
-        Route::get('/admin/users/{id}/edit', [AdminUserController::class, 'edit'])->name('admin.users.edit');
-        Route::post('/admin/users/{id}/edit', [AdminUserController::class, 'update'])->name('admin.users.update');
-    });
 });

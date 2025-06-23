@@ -32,7 +32,8 @@
                 <td>{{ $user->hp }}</td>
                 <td>
                     <span class="badge bg-info text-dark">
-                        {{ $user->role == 0 ? 'Admin' : ($user->role == 1 ? 'Kasir' : 'User') }}
+                        {{ $user->role == 0 ? 'SuperAdmin' : ($user->role == 1 ? 'Admin' : ($user->role == 2 ? 'User' : 'Tidak Diketahui')) }}
+
                     </span>
                 </td>
                 <td>
@@ -46,7 +47,14 @@
                     <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-sm btn-warning">
                         <i class="bi bi-pencil"></i> Edit
                     </a>
+                    <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display:inline" onsubmit="return confirm('Yakin hapus produk?')">
+                        @csrf
+                        <button class="btn btn-danger btn-sm">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </form>
                 </td>
+
             </tr>
         @endforeach
         </tbody>

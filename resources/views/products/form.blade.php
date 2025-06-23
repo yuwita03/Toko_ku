@@ -22,15 +22,15 @@ $isEdit = isset($product);
     </div>
     <div class="mb-3">
         <label>Stok</label>
-        <input type="number" name="stock" class="form-control" value="{{ old('stock', $isEdit ? $product->stock : 0) }}" required>
+        <input type="number" name="stock" class="form-control" value="{{ old('stock', $isEdit ? $product->stock : '') }}" required>
     </div>
     <div class="mb-3">
         <label>Harga Jual</label>
-        <input type="number" name="sell_price" class="form-control" value="{{ old('sell_price', $isEdit ? $product->sell_price : 0) }}" required>
+        <input type="number" name="sell_price" class="form-control" value="{{ old('sell_price', $isEdit ? $product->sell_price : '') }}" required>
     </div>
     <div class="mb-3">
         <label>Harga Modal</label>
-        <input type="number" name="cost_price" class="form-control" value="{{ old('cost_price', $isEdit ? $product->cost_price : 0) }}" required>
+        <input type="number" name="cost_price" class="form-control" value="{{ old('cost_price', $isEdit ? $product->cost_price : '') }}" required>
     </div>
     <div class="mb-3">
         <label>Deskripsi Produk</label>
