@@ -7,10 +7,8 @@
           <h1 class="mt-40 mb-2 text-6xl font-extrabold text-white text-center">
             Nikmati Sepotong Kue Hangat dari <span class="text-orange-600">Oven</span>
           </h1>
-          <p class="mt-2 mb-[2rem] text-lg text-white text-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, enim.
-          </p>
-            <button class="text-white bg-orange-500 p-2 rounded-[10px] font-bold hover:bg-orange-600 active">
+
+            <button class="text-white bg-orange-500 p-2 rounded-[10px] font-bold hover:bg-orange-600 active  mt-4">
 
               <a href="#menu">ORDER NOW!</a>
             </button>
@@ -23,7 +21,7 @@
       <div class="container flex flex-col md:flex-row items-center justify-center gap-8">
         <img src="https://th.bing.com/th/id/R.c36aa99f504a41fefa684b3a6b716c77?rik=F06ZbfQgwoL0FA&riu=http%3a%2f%2fsweetclipart.com%2fmultisite%2fsweetclipart%2ffiles%2fcat_black_white_line_art.png&ehk=BEwSksrClDEML3luKyITunhMmH9kVHTbyB1iJeWVrEc%3d&risl=&pid=ImgRaw&r=0" alt="Blueberry Cake" class="w-[20rem] mx-auto md:mx-0" />
         <p class="text-white text-center md:text-left max-w-lg">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus repudiandae excepturi corrupti eaque possimus ipsam dignissimos ea corporis eum ex! Unde minima accusantium repellendus quos earum voluptatem accusamus. Quisquam, dolorum.
+            Rasakan kelembutan setiap gigitan yang penuh cinta dan cita rasa. Kami menghadirkan kue yang bukan sekadar hidangan, tetapi juga sebuah akta kehangatan dalam setiap momen manismu.
         </p>
       </div>
     </section>

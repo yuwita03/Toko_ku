@@ -31,7 +31,7 @@ User::create([
     'status' => 1,
     'hp' => '081234567892',
     'alamat' => 'Jl. Super No. 2',
-    'password' => bcrypt('git '),
+    'password' => bcrypt('P@55word'),
 ]);
 
 User::create([
